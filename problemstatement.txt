@@ -1,0 +1,9 @@
+Assignment 11: PDF Summarization Agent with Llama 3
+Question: Design and develop a PDF Summarization LLM Agent using FastAPI, Ollama, and the Llama 3 model.
+Requirements
+
+- Accept a PDF document through a file-upload interface.
+- Validate the file and extract readable text from the PDF.
+- Handle long documents using appropriate text segmentation.
+- Generate a meaningful summary using Llama 3 through local Ollama.
+- Display the summary clearly and handle extraction or model errors gracefully.

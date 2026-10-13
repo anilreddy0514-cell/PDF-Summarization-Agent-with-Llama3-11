@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f5ef">
+    <title>Folio | PDF Summarizer</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="wordmark" href="/" aria-label="Folio home"><span class="mark">F</span>folio</a>
+      <div class="local-indicator"><span class="status-dot"></span> LOCAL MODEL <span class="topbar-divider">/</span> LLAMA 3</div>
+    </header>
+
+    <main class="workspace">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">DOCUMENT DESK <span>01 / 01</span></p>
+        <h1 id="page-title">Make the long<br>story <em>short.</em></h1>
+        <p class="intro-copy">A clear read on your PDF, summarized on your machine.</p>
+      </section>
+
+      <section class="workbench" aria-label="PDF summarizer">
+        <div class="upload-panel">
+          <div class="panel-heading">
+            <div><span class="step-number">01</span><h2>Choose a document</h2></div>
+            <span class="limit-label">PDF · UP TO 20 MB</span>
+          </div>
+          <form id="upload-form">
+            <label class="dropzone" id="dropzone" for="pdf-file">
+              <span class="file-glyph" aria-hidden="true">PDF</span>
+              <span class="drop-title" id="drop-title">Drop your PDF here</span>
+              <span class="drop-subtitle" id="drop-subtitle">or <span class="browse-link">browse files</span></span>
+              <input id="pdf-file" name="file" type="file" accept="application/pdf,.pdf" required>
+            </label>
+            <button class="summarize-button" id="submit-button" type="submit" disabled>
+              <span id="button-label">Summarize document</span><span aria-hidden="true">↗</span>
+            </button>
+          </form>
+          <p class="privacy-note"><span class="privacy-lock" aria-hidden="true">●</span> Your document stays on this machine.</p>
+        </div>
+
+        <div class="summary-panel" aria-live="polite" aria-busy="false">
+          <div class="panel-heading summary-heading">
+            <div><span class="step-number">02</span><h2>Summary</h2></div>
+            <button class="copy-button" id="copy-button" type="button" disabled aria-label="Copy summary">COPY</button>
+          </div>
+          <div class="summary-content" id="summary-content">
+            <div class="empty-state" id="empty-state">
+              <div class="empty-lines" aria-hidden="true"><span></span><span></span><span></span></div>
+              <p>Your summary will appear here.</p>
+            </div>
+            <div class="loading-state" id="loading-state" hidden>
+              <span class="loader" aria-hidden="true"></span>
+              <p id="loading-message">Reading your document…</p>
+              <span class="loading-caption">Longer documents may take a little while.</span>
+            </div>
+            <div class="error-state" id="error-state" hidden role="alert"></div>
+            <article class="summary-result" id="summary-result" hidden>
+              <div class="document-meta" id="document-meta"></div>
+              <div class="summary-text" id="summary-text"></div>
+            </article>
+          </div>
+          <div class="summary-footer"><span>GENERATED LOCALLY</span><span>FOLIO / READER</span></div>
+        </div>
+      </section>
+
+      <footer class="page-footer"><span>PRIVATE BY DESIGN</span><span>PDF SUMMARIZATION WORKSPACE</span></footer>
+    </main>
+  </body>
+</html>
